@@ -1,0 +1,27 @@
+name: Deploy Documentation to Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Setup
+        uses: actions/checkout@v2
+
+      - name: Build Documentation
+        run: |
+          sudo apt install cmake doxygen libeigen3-dev
+          mkdir build
+          cd build
+          cmake .. -DRT_BUILD_DOCS=YES
+          make doc
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/docs/html
