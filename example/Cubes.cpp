@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     // light
     shapes.push_back(new RayTracer::Sphere(RayTracer::V3D(-10.0, 20.0, -30.0), 3.0, 0.0, 0.0, RayTracer::Color(0.0, 0.0, 0.0), RayTracer::Color(3.0, 3.0, 3.0)));
 
-    RayTracer::render(shapes, 640, 480, 10, "cubes.ppm");
+    RayTracer::Utils::render(shapes, 640, 480, 10, "cubes.ppm");
 
     for (auto& s : shapes) {
         delete s;

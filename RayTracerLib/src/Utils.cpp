@@ -6,7 +6,7 @@
 
 #include <omp.h>
 
-RayTracer::Color RayTracer::trace(const Ray& ray, const std::vector<Shape*>& shapes, const int& depth, const int MAX_RAY_DEPTH)
+RayTracer::Color RayTracer::Utils::trace(const Ray& ray, const std::vector<Shape*>& shapes, const int& depth, const int MAX_RAY_DEPTH)
 {
 	double tnear = INFINITY;
 	const Shape* shape = nullptr;
@@ -86,7 +86,7 @@ RayTracer::Color RayTracer::trace(const Ray& ray, const std::vector<Shape*>& sha
 	return surfaceColor + shape->getEmissionColor();
 }
 
-void RayTracer::render(const std::vector<Shape*>& shapes, unsigned width, unsigned height, const int MAX_RAY_DEPTH, const char* filename)
+void RayTracer::Utils::render(const std::vector<Shape*>& shapes, unsigned width, unsigned height, const int MAX_RAY_DEPTH, const char* filename)
 {
 	std::vector<V3D> image;
 	image.resize(width * height);

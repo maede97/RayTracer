@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
     shapes.push_back(new RayTracer::Sphere(RayTracer::V3D(0.0, 20.0, -30.0), 3.0, 0.0, 0.0, RayTracer::Color(0.0, 0.0, 0.0), RayTracer::Color(3.0, 3.0, 3.0)));
     
 
-    RayTracer::render(shapes, 1920, 1080, 5, "spheres.ppm");
+    RayTracer::Utils::render(shapes, 1920, 1080, 5, "spheres.ppm");
 
     for (auto& s : shapes) {
         delete s;
